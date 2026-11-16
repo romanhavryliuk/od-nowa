@@ -1,0 +1,195 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-line);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.topbar__location {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.topbar__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-olive);
+}
+
+.topbar__note {
+  text-align: right;
+  color: var(--color-muted);
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  height: 78px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -1.3px;
+  transition: opacity var(--transition-duration) var(--transition-timing);
+}
+
+.logo:hover,
+.logo:focus {
+  opacity: 0.7;
+}
+
+.logo__icon {
+  width: 36px;
+  height: 35px;
+  stroke-width: 1.4;
+}
+
+.logo__text {
+  white-space: nowrap;
+}
+
+.logo__caption {
+  display: block;
+  margin-top: 5px;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 1.3px;
+}
+
+/* На мобільному меню ховається в бургер (див. mobile-menu.css) */
+.nav {
+  display: none;
+}
+
+.nav__list {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.nav__link {
+  display: block;
+  padding: 10px 0;
+  text-decoration: underline transparent;
+  text-underline-offset: 5px;
+  transition: text-decoration-color var(--transition-duration)
+    var(--transition-timing);
+}
+
+.nav__link:hover,
+.nav__link:focus {
+  text-decoration-color: currentColor;
+}
+
+.header__cta {
+  display: none;
+  align-items: center;
+  gap: 20px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--color-ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.header__cta-icon {
+  transition: transform var(--transition-duration) var(--transition-timing);
+}
+
+.header__cta:hover .header__cta-icon,
+.header__cta:focus .header__cta-icon {
+  transform: translateX(4px);
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  padding: 0;
+  border: 0;
+  color: var(--color-ink);
+  background-color: transparent;
+  transition: opacity var(--transition-duration) var(--transition-timing);
+}
+
+.burger:hover,
+.burger:focus {
+  opacity: 0.7;
+}
+
+.burger__icon {
+  width: 28px;
+  height: 28px;
+}
+
+@media only screen and (min-width: 768px) {
+  .topbar {
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .header__inner {
+    gap: 30px;
+    height: 85px;
+  }
+
+  .logo {
+    gap: 10px;
+    font-size: 22px;
+  }
+
+  .logo__icon {
+    width: 43px;
+  }
+
+  .nav {
+    display: block;
+  }
+
+  .burger {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .topbar {
+    font-size: 13px;
+  }
+
+  .header__inner {
+    height: 104px;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  .logo__caption {
+    font-size: 10px;
+  }
+
+  .nav__list {
+    gap: 40px;
+    font-size: 15px;
+  }
+
+  .header__cta {
+    display: flex;
+  }
+}

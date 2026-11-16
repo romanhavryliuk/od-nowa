@@ -1,0 +1,77 @@
+<section class="quote" id="wycena" aria-labelledby="quote-title">
+  <div class="container quote__container">
+    <div>
+      <p class="section-label quote__label">03 / TWOJA KANAPA, NASZ TEMAT</p>
+      <h2 class="section-title quote__title" id="quote-title">Poproś<br />o wycenę.</h2>
+      <p class="quote__text">
+        Zostaw kontakt. Cenę oraz dogodny termin ustalimy po krótkiej rozmowie.
+      </p>
+      <div class="quote__meta">
+        <svg class="icon quote__meta-icon" aria-hidden="true">
+          <use href="./img/sprite.svg#icon-pin"></use>
+        </svg>
+        <p>Łódź<span class="quote__meta-caption">Usługa z dojazdem do domu</span></p>
+      </div>
+    </div>
+
+    <!-- Форма демонстраційна: браузер перевіряє поля, а main.js показує повідомлення без відправки -->
+    <form class="form" autocomplete="off">
+      <div class="form__notice">
+        <svg class="icon form__notice-icon" aria-hidden="true">
+          <use href="./img/sprite.svg#icon-info"></use>
+        </svg>
+        <p>Formularz demonstracyjny. Użyj przykładowych danych.</p>
+      </div>
+
+      <div class="form__row">
+        <div class="form__field">
+          <label class="form__label" for="name">Imię</label>
+          <input
+            class="form__input"
+            id="name"
+            type="text"
+            autocomplete="given-name"
+            placeholder="Jak się do Ciebie zwracać?"
+            minlength="2"
+            maxlength="80"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="phone">Numer telefonu</label>
+          <input
+            class="form__input"
+            id="phone"
+            type="tel"
+            autocomplete="tel"
+            placeholder="np. +48 123 456 789"
+            pattern="[+0-9 \(\)\-]{7,25}"
+            maxlength="25"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form__field">
+        <label class="form__label" for="message">
+          Kilka słów o kanapie <span class="form__optional">· opcjonalnie</span>
+        </label>
+        <textarea
+          class="form__input form__textarea"
+          id="message"
+          maxlength="700"
+          placeholder="Rozmiar kanapy, rodzaj tkaniny lub zabrudzenia — jeśli wiesz."
+        ></textarea>
+      </div>
+
+      <button class="button form__button" type="submit">
+        Sprawdź formularz
+        <svg class="icon" aria-hidden="true">
+          <use href="./img/sprite.svg#icon-arrow"></use>
+        </svg>
+      </button>
+      <p class="form__note">Zapytanie nie jest rezerwacją terminu.</p>
+      <p class="form__result" role="status"></p>
+    </form>
+  </div>
+</section>

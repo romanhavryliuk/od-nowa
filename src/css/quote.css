@@ -1,0 +1,208 @@
+.quote {
+  padding: 45px 0;
+  background-color: var(--color-yellow);
+}
+
+.quote :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+.quote__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 29px;
+}
+
+.quote__label {
+  margin-bottom: 19px;
+  color: var(--color-quote-label);
+}
+
+.quote__title {
+  font-size: 47px;
+}
+
+.quote__text {
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-quote-text);
+}
+
+.quote__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 23px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-quote-line);
+  font-size: 14px;
+}
+
+.quote__meta-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.quote__meta-caption {
+  display: block;
+  font-size: 13px;
+  color: var(--color-quote-text);
+}
+
+.form__notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 9px 12px;
+  border: 1px solid var(--color-notice-border);
+  font-size: 13px;
+  color: var(--color-notice-text);
+}
+
+.form__notice-icon {
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.form__field {
+  min-width: 0;
+  margin-bottom: 16px;
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form__optional {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.form__input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  border: 1px solid var(--color-input-border);
+  border-radius: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--color-ink);
+  background-color: var(--color-input-bg);
+}
+
+.form__input::placeholder {
+  color: var(--color-muted);
+}
+
+.form__textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form__button {
+  width: 100%;
+}
+
+.form__note {
+  margin-top: 11px;
+  font-size: 13px;
+  color: var(--color-quote-text);
+}
+
+/* Текст підставляє main.js після відправки; доти блок порожній і схований */
+.form__result {
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+.form__result:empty {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .quote {
+    padding: 60px 0;
+  }
+
+  .quote__container {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 35px;
+  }
+
+  /* Перекриває відступ .section-label з base.css на цій же ширині */
+  .quote__label {
+    margin-bottom: 19px;
+  }
+
+  .quote__text {
+    max-width: 360px;
+    margin-top: 24px;
+  }
+
+  .quote__meta {
+    max-width: 360px;
+    margin-top: 35px;
+  }
+
+  .form__field {
+    margin-bottom: 17px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .quote {
+    padding: 80px 0;
+  }
+
+  .quote__container {
+    gap: 95px;
+  }
+
+  .quote__title {
+    max-width: 480px;
+    font-size: 68px;
+  }
+
+  .quote__text {
+    max-width: 440px;
+    font-size: 17px;
+  }
+
+  .quote__meta {
+    max-width: 440px;
+    font-size: 15px;
+  }
+
+  .form__notice {
+    font-size: 14px;
+  }
+
+  .form__row {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .form__label {
+    font-size: 15px;
+  }
+
+  .form__input {
+    font-size: 17px;
+  }
+
+  .form__result {
+    font-size: 16px;
+  }
+}

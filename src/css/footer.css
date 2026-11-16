@@ -1,0 +1,113 @@
+.footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 25px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.footer__text {
+  max-width: 200px;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.footer__back {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-ink);
+  font-size: 13px;
+}
+
+.footer__back-icon {
+  transform: rotate(-90deg);
+  transition: translate var(--transition-duration) var(--transition-timing);
+}
+
+/* translate окремо від transform, щоб не скинути поворот стрілки */
+.footer__back:hover .footer__back-icon,
+.footer__back:focus .footer__back-icon {
+  translate: 0 -4px;
+}
+
+.footer__word {
+  overflow: hidden;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--color-line);
+  /* Слово тягнеться разом з екраном; межі не дають йому вилізти за контейнер */
+  font-size: clamp(52px, 15.5vw, 110px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.085em;
+  white-space: nowrap;
+}
+
+.footer__word-arrow {
+  margin-left: 0.2em;
+  font-size: 0.7em;
+  font-weight: 400;
+  vertical-align: 10%;
+  color: var(--color-footer-arrow);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 17px 0 25px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+@media only screen and (min-width: 768px) {
+  .footer__top {
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 30px 0;
+  }
+
+  .footer__text {
+    max-width: 260px;
+    font-size: 14px;
+  }
+
+  .footer__back {
+    min-height: auto;
+  }
+
+  .footer__word {
+    font-size: clamp(110px, 16vw, 235px);
+    letter-spacing: -0.09em;
+  }
+
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 18px 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .footer__text {
+    max-width: 300px;
+    font-size: 15px;
+  }
+
+  .footer__back {
+    font-size: 14px;
+  }
+
+  .footer__word {
+    font-size: 235px;
+  }
+
+  .footer__bottom {
+    font-size: 13px;
+  }
+}
