@@ -1,19 +1,56 @@
-.hero__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding-bottom: 27px;
+/* Перший екран: фото на всю ширину і висоту вікна, контент по центру.
+   Верхній відступ більший за висоту шапки, яка лежить поверх фото */
+.hero__screen {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 150px 0 64px;
+  overflow: hidden;
+  color: var(--color-white);
+  background-color: var(--color-ink);
+}
+
+/* Затемнення поверх фото: на телефоні текст унизу, тому темніше знизу */
+.hero__screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(
+    180deg,
+    var(--color-overlay-medium) 0%,
+    var(--color-overlay-soft) 30%,
+    var(--color-overlay-strong) 70%
+  );
+}
+
+.hero__screen :focus-visible {
+  outline-color: var(--color-white);
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% center;
+}
+
+.hero__container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero__content {
-  min-width: 0;
-  padding: 22px 0 27px;
+  max-width: 640px;
 }
 
 .hero__title {
-  position: relative;
-  z-index: 2;
-  margin: 24px 0;
-  font-size: clamp(44px, 13.8vw, 52px);
+  margin: 20px 0;
+  font-size: clamp(44px, 13.8vw, 64px);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -3.5px;
@@ -26,19 +63,29 @@
 .hero__title-accent {
   display: inline-block;
   padding: 0 10px 8px 4px;
+  color: var(--color-ink);
   background-color: var(--color-yellow);
   transform: rotate(-2deg);
 }
 
 .hero__text {
-  max-width: 360px;
+  max-width: 420px;
   font-size: 15px;
   line-height: 1.8;
-  color: var(--color-muted);
+  color: var(--color-on-photo-muted);
 }
 
+/* На темному фото жовта кнопка помітніша за темну */
 .hero__button {
-  margin-top: 23px;
+  margin-top: 24px;
+  border-color: var(--color-yellow);
+  color: var(--color-ink);
+  background-color: var(--color-yellow);
+}
+
+.hero__button:hover,
+.hero__button:focus {
+  background-color: var(--color-yellow-hover);
 }
 
 .hero__note {
@@ -47,7 +94,7 @@
   gap: 8px;
   margin-top: 14px;
   font-size: 13px;
-  color: var(--color-muted);
+  color: var(--color-on-photo-muted);
 }
 
 .hero__note-icon {
@@ -55,38 +102,22 @@
   height: 15px;
 }
 
-.hero__visual {
-  position: relative;
-  min-width: 0;
-  height: 355px;
-  overflow: hidden;
-  background-color: var(--color-sand);
-}
-
-.hero__image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 66% center;
-}
-
 .hero__label {
   position: absolute;
-  right: 17px;
-  bottom: 9px;
+  right: 20px;
+  bottom: 16px;
+  z-index: 2;
   padding: 3px 7px;
   font-size: 12px;
   color: var(--color-label-text);
   background-color: var(--color-label-bg);
 }
 
+/* Наліпка — декор, на телефоні вона перекривала б текст */
 .hero__tag {
   position: absolute;
-  left: 18px;
-  bottom: 40px;
-  display: flex;
+  z-index: 2;
+  display: none;
   align-items: center;
   gap: 14px;
   padding: 12px 15px;
@@ -140,41 +171,53 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .hero__inner {
-    grid-template-columns: 1fr 1fr;
-    padding: 10px 0 48px;
+  .hero__screen {
+    padding: 170px 0 96px;
   }
 
-  .hero__content {
-    padding: 18px 20px 35px 0;
+  /* Текст ліворуч, тому затемнення теж ліворуч; зверху — для читабельності шапки */
+  .hero__screen::before {
+    background-image:
+      linear-gradient(
+        180deg,
+        var(--color-overlay-medium) 0%,
+        transparent 25%
+      ),
+      linear-gradient(
+        90deg,
+        var(--color-overlay-strong) 0%,
+        var(--color-overlay-medium) 50%,
+        var(--color-overlay-soft) 100%
+      );
   }
 
-  /* Від'ємний правий відступ: заголовок трохи заходить на фото */
+  /* На вертикальному планшеті зсуваємо кадр, щоб насадка була праворуч від тексту */
+  .hero__image {
+    object-position: 40% center;
+  }
+
   .hero__title {
-    margin: 22px -40px 27px 0;
-    font-size: 60px;
-    line-height: 1.01;
+    font-size: 76px;
+    letter-spacing: -4.5px;
   }
 
   .hero__button {
-    margin-top: 26px;
+    margin-top: 28px;
   }
 
   .hero__note {
     margin-top: 18px;
   }
 
-  .hero__visual {
-    height: auto;
-    min-height: 500px;
-  }
-
-  .hero__image {
-    object-position: 62% center;
+  .hero__label {
+    right: 32px;
+    bottom: 24px;
   }
 
   .hero__tag {
-    left: 12px;
+    right: 32px;
+    bottom: 72px;
+    display: flex;
     padding: 10px 13px;
   }
 
@@ -200,23 +243,26 @@
 }
 
 @media only screen and (min-width: 1440px) {
-  .hero__inner {
-    grid-template-columns: 1.05fr 1fr;
-    padding-top: 18px;
+  .hero__screen {
+    padding: 200px 0 120px;
+  }
+
+  .hero__image {
+    object-position: 62% center;
   }
 
   .hero__content {
-    padding: 38px 28px 35px 0;
+    max-width: 760px;
   }
 
   .hero__title {
-    margin-top: 30px;
-    font-size: 92px;
+    margin: 28px 0;
+    font-size: 100px;
     letter-spacing: -5.8px;
   }
 
   .hero__text {
-    max-width: 460px;
+    max-width: 480px;
     font-size: 18px;
   }
 
@@ -228,16 +274,14 @@
     font-size: 14px;
   }
 
-  .hero__visual {
-    min-height: 640px;
-  }
-
   .hero__label {
+    right: 40px;
     font-size: 13px;
   }
 
   .hero__tag {
-    left: 22px;
+    right: 40px;
+    bottom: 88px;
     padding: 14px 18px;
   }
 

@@ -1,6 +1,17 @@
 <section class="hero" aria-labelledby="hero-title">
-  <div class="container">
-    <div class="hero__inner">
+  <div class="hero__screen">
+    <!-- Одне фото 1536px на всі екрани: на весь екран телефон масштабує його
+         по висоті, тож менші версії виглядали б розмито -->
+    <img
+      class="hero__image"
+      src="./img/webp/hero.webp"
+      alt="Ręczna ssawka ekstraktora na musztardowej tkaninie kanapy"
+      width="1536"
+      height="1024"
+      fetchpriority="high"
+    />
+
+    <div class="container hero__container">
       <div class="hero__content">
         <p class="eyebrow">Pranie kanap z dojazdem · Łódź</p>
         <h1 class="hero__title" id="hero-title">
@@ -25,39 +36,18 @@
           Najpierw rozmowa i wycena. Potem decyzja.
         </p>
       </div>
-
-      <div class="hero__visual">
-        <picture>
-          <source
-            media="(min-width: 1440px)"
-            srcset="./img/webp/hero-desk.webp 1x, ./img/webp/hero-desk@2x.webp 2x"
-            type="image/webp"
-          />
-          <source
-            media="(min-width: 768px)"
-            srcset="./img/webp/hero-tab.webp 1x, ./img/webp/hero-tab@2x.webp 2x"
-            type="image/webp"
-          />
-          <img
-            class="hero__image"
-            src="./img/webp/hero-mob.webp"
-            srcset="./img/webp/hero-mob.webp 1x, ./img/webp/hero-mob@2x.webp 2x"
-            alt="Ilustracja procesu: ręczna ssawka ekstraktora na musztardowej tkaninie kanapy"
-            width="540"
-            height="360"
-            fetchpriority="high"
-          />
-        </picture>
-        <div class="hero__tag" aria-hidden="true">
-          <svg class="icon hero__tag-icon">
-            <use href="./img/sprite.svg#icon-sofa"></use>
-          </svg>
-          <span class="hero__tag-text">Nie nowa.<b class="hero__tag-accent">Od nowa.</b></span>
-        </div>
-        <span class="hero__label">Wizualizacja ilustracyjna · AI</span>
-      </div>
     </div>
 
+    <div class="hero__tag" aria-hidden="true">
+      <svg class="icon hero__tag-icon">
+        <use href="./img/sprite.svg#icon-sofa"></use>
+      </svg>
+      <span class="hero__tag-text">Nie nowa.<b class="hero__tag-accent">Od nowa.</b></span>
+    </div>
+    <span class="hero__label">Wizualizacja ilustracyjna · AI</span>
+  </div>
+
+  <div class="container">
     <ul class="benefits">
       <li class="benefits__item">
         <svg class="icon benefits__icon" aria-hidden="true">

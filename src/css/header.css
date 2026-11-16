@@ -1,10 +1,24 @@
+/* Шапка лежить поверх фото першого екрана, тому вона прозора і зі світлим текстом */
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  color: var(--color-white);
+}
+
+.header :focus-visible {
+  outline-color: var(--color-white);
+}
+
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
   padding: 8px 0;
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-on-photo-line);
   font-size: 12px;
   letter-spacing: 0.5px;
 }
@@ -19,12 +33,12 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--color-olive);
+  background-color: var(--color-yellow);
 }
 
 .topbar__note {
   text-align: right;
-  color: var(--color-muted);
+  color: var(--color-on-photo-muted);
 }
 
 .header__inner {
@@ -100,7 +114,7 @@
   align-items: center;
   gap: 20px;
   padding: 9px 0;
-  border-bottom: 1px solid var(--color-ink);
+  border-bottom: 1px solid currentColor;
   font-size: 15px;
   font-weight: 700;
 }
@@ -123,7 +137,7 @@
   margin-right: -10px;
   padding: 0;
   border: 0;
-  color: var(--color-ink);
+  color: inherit;
   background-color: transparent;
   transition: opacity var(--transition-duration) var(--transition-timing);
 }
