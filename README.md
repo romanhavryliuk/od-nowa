@@ -1,43 +1,59 @@
-# OD NOWA — як відкрити та редагувати лендинг
+# OD NOWA — przykładowa strona usługi
 
-Проєкт зібраний на Vite за шаблоном GoIT. Потрібен Node.js 18 або новіший.
+Przykładowy landing page usługi prania kanap z dojazdem w Łodzi. Marka OD NOWA jest fikcyjna,
+a formularz działa w trybie demonstracyjnym.
 
-1. Відкрий папку у VS Code: File → Open Folder.
-2. У терміналі встанови залежності: `npm install`.
-3. Запусти dev-сервер: `npm run dev` і відкрий адресу з терміналу (вона закінчується на
-   `/od-nowa/`). Зміни з'являються в браузері одразу.
-4. Збірка: `npm run build`. Готовий сайт буде в папці `dist`. Перевірити збірку локально можна
-   командою `npm run preview`.
+**Demo:** https://romanhavryliuk.github.io/od-nowa/
 
-## Деплой
+## Technologie
 
-Сайт публікується на GitHub Pages: https://romanhavryliuk.github.io/od-nowa/
+- HTML, CSS (mobile-first), JavaScript bez bibliotek
+- Vite 5 + `vite-plugin-html-inject` (sekcje w osobnych plikach HTML)
+- Obrazy w formacie WebP, ikony w sprite SVG
 
-- Після кожного push у `main` GitHub Actions (`.github/workflows/deploy.yml`) збирає сайт і
-  кладе його в гілку `gh-pages`.
-- Один раз у налаштуваннях репозиторію: Settings → Pages → Branch: `gh-pages`, папка `/ (root)`.
-- Шлях `/od-nowa/` задано в `vite.config.js` (`base`). Якщо перейменуєш репозиторій, зміни його
-  там і в адресах Open Graph у `src/index.html`.
+## Uruchomienie
 
-## Що де змінювати
+Wymagany Node.js 18 lub nowszy.
 
-- `src/index.html` — каркас сторінки: head (SEO, Open Graph, favicon) і підключення секцій через
-  `<load src="..."/>`.
-- `src/partials/` — розмітка секцій: `header`, `mobile-menu`, `hero`, `services`, `process`,
-  `quote`, `faq`, `footer`. Щоб змінити головний заголовок, відкрий `hero.html` і знайди
-  «Twoja kanapa.».
-- `src/css/` — стилі. `styles.css` лише підключає інші файли. Кольори задано в `:root` у
-  `base.css`. Кожна секція має свій файл. Точки перелому: 375, 768 і 1440 px (mobile-first),
-  контейнер гумовий до 1440 px.
-- `src/main.js` — підключає скрипти з `src/js/`: `mobile-menu.js` (бургер-меню до 768 px) і
-  `demo-form.js` (повідомлення демо-форми).
-- `src/public/` — файли, які копіюються без змін: `favicon.svg` і `og-image.jpg` (прев'ю
-  посилання 1200×630).
-- `src/img/sprite.svg` — іконки.
-- `src/img/webp/hero.webp` — фото першого екрана (1536×1024), одне на всі ширини: на весь екран
-  телефон масштабує його по висоті, тож менші версії були б розмиті. Для чіткості на великих
-  моніторах краще фото від 2560 px завширшки. Після заміни фото онови опис `alt` у `hero.html`.
+1. Zainstaluj zależności: `npm install`.
+2. Uruchom serwer deweloperski: `npm run dev` i otwórz adres z terminala (kończy się na
+   `/od-nowa/`). Zmiany pojawiają się w przeglądarce od razu.
+3. Zbuduj wersję produkcyjną: `npm run build`. Gotowa strona trafi do folderu `dist`. Lokalny
+   podgląd builda: `npm run preview`.
 
-## Як перевірити форму
+## Wdrożenie
 
-Введи вигадане ім’я та номер, наприклад +48 123 456 789, і натисни «Sprawdź formularz». Браузер перевірить обов’язкові поля, а під кнопкою з'явиться повідомлення про деморежим. Дані нікуди не відправляються. Для справжніх заявок у Telegram потрібен серверний обробник. Токен бота має зберігатися на сервері.
+Strona jest publikowana na GitHub Pages.
+
+- Po każdym pushu do gałęzi `main` GitHub Actions (`.github/workflows/deploy.yml`) buduje stronę
+  i umieszcza ją w gałęzi `gh-pages`.
+- Jednorazowo w ustawieniach repozytorium: Settings → Pages → Branch: `gh-pages`, folder
+  `/ (root)`.
+- Ścieżka `/od-nowa/` jest ustawiona w `vite.config.js` (`base`). Po zmianie nazwy repozytorium
+  zaktualizuj ją tam oraz w adresach Open Graph w `src/index.html`.
+
+## Struktura projektu
+
+- `src/index.html` — szkielet strony: sekcja head (SEO, Open Graph, favicon) i dołączanie sekcji
+  przez `<load src="..."/>`.
+- `src/partials/` — znaczniki sekcji: `header`, `mobile-menu`, `hero`, `services`, `process`,
+  `quote`, `faq`, `footer`. Główny nagłówek znajdziesz w `hero.html` („Twoja kanapa.”).
+- `src/css/` — style. `styles.css` tylko importuje pozostałe pliki. Kolory są zdefiniowane w
+  `:root` w pliku `base.css`. Każda sekcja ma własny plik. Punkty przełamania: 375, 768 i 1440 px
+  (mobile-first), kontener elastyczny do 1440 px.
+- `src/main.js` — dołącza skrypty z `src/js/`: `mobile-menu.js` (menu mobilne poniżej 768 px) i
+  `demo-form.js` (komunikat formularza demonstracyjnego).
+- `src/public/` — pliki kopiowane bez zmian: `favicon.svg` i `og-image.jpg` (podgląd linku
+  1200×630).
+- `src/img/sprite.svg` — ikony.
+- `src/img/webp/hero.webp` — zdjęcie pierwszego ekranu (1536×1024), jedno dla wszystkich
+  szerokości: na pełnym ekranie telefon skaluje je według wysokości, więc mniejsze wersje byłyby
+  rozmyte. Dla pełnej ostrości na dużych monitorach lepiej użyć zdjęcia o szerokości od 2560 px.
+  Po wymianie zdjęcia zaktualizuj opis `alt` w `hero.html`.
+
+## Formularz
+
+Wpisz przykładowe imię i numer, np. +48 123 456 789, i kliknij „Sprawdź formularz”. Przeglądarka
+sprawdzi wymagane pola, a pod przyciskiem pojawi się komunikat o trybie demonstracyjnym. Dane nie
+są nigdzie wysyłane. Do obsługi prawdziwych zapytań (np. przez Telegram) potrzebny jest backend —
+token bota musi być przechowywany na serwerze, nie w kodzie strony.
